@@ -5,8 +5,18 @@ const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn= document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 const faLoader = document.getElementById('fa-loader');
+const background = document.getElementById('background');
 
 let apiQuotes = [];
+
+// Random background picture
+function randomBackground() {
+    const max_pictures = 6;
+    const random = Math.floor(Math.random() * max_pictures) + 1;
+    const url = `url(./background-images/${random}.jpg)`;
+    background.style.backgroundImage = url;
+    background.style.backgroundSize = 'cover';
+}
 
 //Show Loading
 function loading() {
@@ -67,3 +77,4 @@ twitterBtn.addEventListener('click', tweetQuote);
 
 //On Load
 getQuotes();
+randomBackground();
